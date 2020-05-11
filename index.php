@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'config.php';
+require 'funcoes.php';
 
 if(empty($_SESSION['mmnlogin'])){
 	header("Location: login.php");
@@ -20,6 +21,10 @@ if($sql->rowCount() > 0){
 	header("Location: login.php");
 	exit;
 }
+$lista = listar($id, $limite);
+
+
+
 ?>
 
 <h1>Sistema de Marketing Multinível</h1>
@@ -27,3 +32,17 @@ if($sql->rowCount() > 0){
 
 <a href="cadastro.php">Cadastrar novo usuário</a>
 <a href="sair.php">SAIR</a>
+
+<hr/>
+
+<h4>Lista de cadastros</h4>
+<!--<pre>
+	/*<?php print_r($lista); ?>
+</pre>
+<ul>
+<?php foreach($lista as $usuario):?>
+	<li> <?php echo $usuario['nome']; ?></li>
+<?php endforeach; ?>*/
+</ul>-->
+
+<?php exibir($lista); ?>

@@ -8,6 +8,4 @@ try{
 }
 $limite = 3;
 
-$patentes = array(
-
-);
+$patentes = array();
